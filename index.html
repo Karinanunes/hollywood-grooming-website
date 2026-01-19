@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hollywood Grooming</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    /* Make carousel slides match the original hero background behavior */
+    .hero-carousel .hero-slide{
+      width: 100%;
+      height: 100vh;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important; /* same as hero-wrap */
+    }
+
+    /* HERO wrapper must define the "centering box" */
+    .hero-carousel-wrap{
+      position: relative;
+      height: 100vh;       /* IMPORTANT */
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Make the carousel sit as a background layer inside the hero */
+    .hero-carousel{
+      position: absolute;
+      inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+      z-index: 0;
+    }
+
+    /* Ensure each slide fills the hero */
+    .hero-carousel .hero-slide{
+      height: 100vh !important;
+    }
+
+    /* Overlay layer should be above carousel but below text */
+    .hero-carousel-wrap > div[style*="rgba(0,0,0,0.50)"]{
+      z-index: 1 !important;
+    }
+
+    /* Text layer should fill the hero wrapper */
+    .hero-carousel-wrap .container{
+      position: relative;
+      height: 100vh;       /* IMPORTANT */
+      z-index: 3;
+    }
+
+    /* Center only within the hero (not the whole page) */
+    .hero-carousel-wrap .slider-text{
+      min-height: 100vh;   /* IMPORTANT */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* optional vertical tweak */
+    .hero-content{
+      transform: translateY(-10vh);
+    }
+
+ /* NAVBAR ON TOP OF HERO (transparent) */
+ #ftco-navbar{
+   position: fixed;          /* sits on top of hero */
+   top: 20px !important;
+   left: 0;
+   right: 0;
+   z-index: 99999;
+   background: transparent !important;
+   box-shadow: none !important;
+   transition: transform 250ms ease, opacity 250ms ease;
+ }
+
+ /* Hide state (slides up and fades out) */
+#ftco-navbar.nav-hide{
+  transform: translateY(-160%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: ensure template "scrolled" classes don't change bg/shadow */
+#ftco-navbar,
+#ftco-navbar.scrolled,
+#ftco-navbar.awake,
+#ftco-navbar.sleep{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+ /* Navbar text/logo white on top of images */
+ #ftco-navbar .navbar-brand,
+ #ftco-navbar .nav-link,
+ #ftco-navbar .navbar-toggler{
+   color: #fff !important;
+ }
+
+
+
+ /* Your overlay already z-index:1; keep intro above hero if needed */
+ .hero-carousel-wrap{
+   position: relative;
+   z-index: 1;
+ }
+ .ftco-intro{
+   position: relative;
+   z-index: 9999;
+ }
+
+
+/* keep it fixed and transparent always */
+#ftco-navbar,
+#ftco-navbar.scrolled,
+#ftco-navbar.awake,
+#ftco-navbar.sleep {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* if the template changes padding/height when scrolled, keep it stable */
+#ftco-navbar.scrolled,
+#ftco-navbar.awake,
+#ftco-navbar.sleep {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* HERO text positioning (responsive) */
+.hero-carousel-wrap .slider-text{
+  position: relative;
+  inset: 0;              /* top/right/bottom/left = 0 */
+  z-index: 3;            /* above overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* tweak vertical position: negative = higher, positive = lower */
+.hero-content{
+  transform: translateY(-10vh);  /* adjust this */
+}
+
+/* optional: tune per screen size */
+@media (max-width: 768px){
+  .hero-content{ transform: translateY(-6vh); }
+}
+@media (min-width: 1200px){
+  .hero-content{ transform: translateY(-12vh); }
+}
+
+/* Reviews carousel arrows: make circle + center icon perfectly */
+#review-section .owl-nav button.owl-prev,
+#review-section .owl-nav button.owl-next{
+  width: 44px;               /* circle size */
+  height: 44px;
+  border-radius: 50%;
+  padding: 0 !important;     /* IMPORTANT: remove padding */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #8e44ad !important;  /* purple */
+  border: none !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* place them left/right */
+#review-section .owl-nav button.owl-prev{ left: -18px; }
+#review-section .owl-nav button.owl-next{ right: -18px; }
+
+/* shrink and center the <> icon/text */
+#review-section .owl-nav button.owl-prev span,
+#review-section .owl-nav button.owl-next span{
+  font-size: 18px !important;  /* smaller symbol */
+  line-height: 1 !important;
+  color: #fff !important;
+  display: block;
+}
+
+/* hover state */
+#review-section .owl-nav button.owl-prev:hover,
+#review-section .owl-nav button.owl-next:hover{
+  background: #a66bbe !important; /* lighter purple */
+}
+
+@media (max-width: 991.98px){
+  #ftco-navbar .navbar-toggler{
+    display: inline-flex !important;
+  }
+}
+
+/* ===== iPhone / small phones: keep hamburger inside screen ===== */
+@media (max-width: 390px){
+
+  /* prevent horizontal scroll / pushing things off-screen */
+  html, body{
+    overflow-x: hidden !important;
+  }
+
+  /* make sure the navbar itself doesn't overflow */
+  #ftco-navbar{
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* keep container from pushing the toggler off-screen */
+  #ftco-navbar > .container{
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    position: relative !important;
+  }
+
+  /* hard-pin the button */
+  #ftco-navbar .navbar-toggler{
+    right: 12px !important;   /* change this number if you want more/less gap */
+    left: auto !important;
+  }
+
+  /* (optional) shrink logo slightly more so it never collides */
+  #ftco-navbar #logo{
+    height: 48px !important;
+  }
+}
+
+/* Mobile only: make the collapsed menu appear under the hamburger (right side)
+   WITHOUT changing the menu style */
+@media (max-width: 991.98px){
+
+  /* anchor for absolute positioning */
+  #ftco-navbar > .container{
+    position: relative !important;
+  }
+
+  /* move the collapse panel to the right under the toggler */
+  #ftco-navbar #ftco-nav{
+    position: absolute !important;
+    top: 100% !important;   /* directly below the navbar row */
+    right: 0 !important;
+    left: auto !important;
+    width: auto !important; /* so it doesn't stretch under the logo */
+  }
+
+  /* keep the items right-aligned (your style stays the same) */
+  #ftco-navbar #ftco-nav .navbar-nav{
+    margin-left: 0 !important;   /* overrides ml-auto behavior in this layout */
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+
+
+
+</style>
+  </head>
+  <body>
+
+
+	<nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
+    	    <div class="container">
+	    	<a class="navbar-brand" href="index.html">
+          <img id="logo"  src="images/logo-white-background.png" alt="Hollywood Grooming Logo" style="height: 80px;">
+        </a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars" style="font-size: 30px;"></span>
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item"><a href="#about-section" class="nav-link">About us</a></li>
+	        	<li class="nav-item"><a href="#service-section" class="nav-link">Services</a></li>
+            <!-- <li class="nav-item"><a href="#gallery-section" class="nav-link">Gallery</a></li> -->
+            <li class="nav-item"><a href="#faq-section" class="nav-link">FAQ</a></li>
+            <li class="nav-item"><a href="#review-section" class="nav-link">Reviews</a></li>
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+  <!-- END nav   <div class="hero-wrap js-fullheight" style="background-image: url('images/store1.JPG'); position: relative;" data-stellar-background-ratio="1">-->
+      <!-- HERO CAROUSEL -->
+    <div class="hero-wrap js-fullheight hero-carousel-wrap" style="position: relative;" data-stellar-background-ratio="1">
+
+      <!-- Owl Carousel (background images) -->
+      <div class="hero-carousel owl-carousel">
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store.JPG');"></div>
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store-front-outside.JPG');"></div>
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store1.JPG');"></div>
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store2.JPG');"></div>
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store3.JPG');"></div>
+        <div class="hero-slide js-fullheight" style="background-image: url('images/store4.JPG');"></div>
+      </div>
+      <!-- black transparent overlay-->
+      <div style="
+        position: absolute;
+        inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+        background: rgba(0,0,0,0.50);
+        z-index: 1;
+        pointer-events: none;">
+      </div>
+
+      <!-- Content above overlay -->
+<div class="container" style="position: relative; z-index: 3;">
+  <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+    <div class="col-md-11 ftco-animate text-center hero-content">
+
+        <!-- WHITE BOX ONLY FOR THE TITLE
+ <div style="
+   display:inline-block;
+   background: rgba(255,255,255,0.92);
+   padding: 15px 22px;
+   border-radius: 20px;
+   box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+   line-height: 1;           /* prevents extra vertical space */
+ ">-->
+        <h1 class="mb-4" style="color: #ffff; margin: 0; line-height: 1.1;">Where your Pet is a Star! </h1>
+
+
+
+        <a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471"
+           class="nav-link btn btn-primary btn-sm ml-lg-3 book-now-button">
+          Book Now
+        </a>
+
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="ftco-section bg-light ftco-no-pt ftco-intro">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+            <div class="d-block services active text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+            		<span class="flaticon-grooming"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Expert Groomers</h3>
+                <p>Our groomers specialize in breed-specific styles and gentle handling, making grooming a positive experience for your dog.</p>
+                <!-- <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+            <div class="d-block services text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+            		<span class="flaticon-blind"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Pickup & Delivery Available</h3>
+                <p>Busy schedule? No problem. We offer reliable transportation so your pet can get pampered without disrupting your day.</p>
+                <!-- <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+            <div class="d-block services text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+            		<span class="flaticon-stethoscope"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Health & Safety First</h3>
+                <p>Clean tools, safe products, and a calm environment ensure every pet stays healthy and happy during their visit.</p>
+                <!-- <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section id="about-section" class="ftco-section ftco-no-pt ftco-no-pb">
+    	<div class="container">
+    		<div class="row d-flex no-gutters">
+    			<div class="col-md-5 d-flex">
+    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about-1.jpg);">
+    				</div>
+    			</div>
+    			<div class="col-md-7 pl-md-5 py-md-5">
+    				<div class="heading-section pt-md-5">
+	            <h2 class="mb-4">Who we are</h2>
+              <p>
+              Since 2015, our founder—a veterinarian and lifelong animal lover—has brought a farm-stead tradition of hands-on care from our family’s small farm overseas to Hollywood Grooming. Back home, we practiced veterinary medicine and tended to every creature, big and small.
+            </p>
+            <p>
+            Today, that same compassion guides every bath, haircut, and nail trim. We treat your pet like one of our own—gentle, attentive, and always ready with a wagging tail (or purring cuddle) in mind.
+          </p>
+    				</div>
+            <div>
+            </div>
+	    			</div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-counter" id="section-counter">
+    	<div class="container">
+				<div class="row">
+
+          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="23">0</strong>
+              </div>
+              <div class="text">
+                <span>Years of experience</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="42000">0</strong>
+              </div>
+              <div class="text">
+                <span>Clients</span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="73000">0</strong>
+              </div>
+              <div class="text">
+              	<span>Pets</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="100000">0</strong>
+              </div>
+              <div class="text">
+              	<span>Pounds of Fur Removed</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    	</div>
+    </section>
+
+
+
+    <section id="service-section" class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2>Services</h2>
+          </div>
+        </div>
+    		 <div class="owl-carousel services-carousel ">
+
+
+          <div class="item">
+          <div class="block-7">
+              <div class="img" style="background-image: url(images/15.JPG);  background-position: right center;"></div>
+              <div class="text-center p-4">
+
+                <span class="excerpt d-block d-flex align-items-center justify-content-center justify-content-md-start">
+                  <span class="badge-new">NEW</span>
+
+                  <span class="excerpt service-title ml-3">Pickup & Delivery</span>
+                </span>
+                <div class="my-3"></div>
+
+                <ul class="pricing-text mb-5">
+                  <li><span class="fa fa-check mr-2"></span>Pick up from home</li>
+                  <li><span class="fa fa-check mr-2"></span>Delivery when ready</li>
+                  <li><span class="fa fa-check mr-2"></span>Available with any services</li>
+                  <li><span class="fa fa-check mr-2"></span>Transport in a climate-controlled commercial van</li>
+                  <li><span class="fa fa-check mr-2"></span>Secured in a kennel approved by the Center for Pet Safety</li>
+                </ul>
+
+                <a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471" class="btn btn-primary d-block px-2 py-3">Book</a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="item">
+          <div class="block-7">
+	          	<div class="img" style="background-image: url(images/lux-bath-dog.jpg);"></div>
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Luxury Bath</span>
+
+              <div class="my-3"></div>
+		            <ul class="pricing-text mb-5">
+		              <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                  <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+		              <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                  <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+		              <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                  <li><span class="fa fa-check mr-2"></span>Tooth brushing</li>
+		              <li><span class="fa fa-check mr-2"></span>Ear cleaning & plucking</li>
+                  <li><span class="fa fa-check mr-2"></span>Anal glands expressed</li>
+                  <li><span class="fa fa-check mr-2"></span>Bow or bandana</li>
+                  <li><span class="fa fa-check mr-2"></span>Spritz of pet-safe fragrance</li>
+		            </ul>
+
+	            	<a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471"  class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+          <div class="item">
+          <div class="block-7">
+	          	<div class="img" style="background-image: url(images/mini-groom-dog.jpg);"></div>
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Maintenance Trim</span>
+		            <div class="my-3"></div>
+
+		            <ul class="pricing-text mb-5">
+                  <li><span class="fa fa-check mr-2"></span>Face (eyes and visor) trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Paw, tail and ear trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Sanitary trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                  <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+                  <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                  <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+                  <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                  <li><span class="fa fa-check mr-2"></span>Tooth brushing</li>
+                  <li><span class="fa fa-check mr-2"></span>Ear cleaning & plucking</li>
+                  <li><span class="fa fa-check mr-2"></span>Anal glands expressed</li>
+                  <li><span class="fa fa-check mr-2"></span>Bow or bandana</li>
+                  <li><span class="fa fa-check mr-2"></span>Spritz of pet-safe fragrance</li>
+		            </ul>
+
+		            <a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471"  class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+
+          <div class="item">
+  <div class="block-7">
+	          	<div class="img" style="background-image: url(images/full-groom1.jpg);"></div>
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Full Groom </span>
+		            <div class="my-3"></div>
+
+		            <ul class="pricing-text mb-5">
+                  <li><span class="fa fa-check mr-2"></span>Full-style haircut</li>
+                  <li><span class="fa fa-check mr-2"></span>Face (eyes and visor) trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Paw, tail and ear trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Sanitary trim</li>
+                  <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                  <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+                  <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                  <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+                  <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                  <li><span class="fa fa-check mr-2"></span>Tooth brushing</li>
+                  <li><span class="fa fa-check mr-2"></span>Ear cleaning & plucking</li>
+                  <li><span class="fa fa-check mr-2"></span>Anal glands expressed</li>
+                  <li><span class="fa fa-check mr-2"></span>Bow or bandana</li>
+                  <li><span class="fa fa-check mr-2"></span>Spritz of pet-safe fragrance</li>
+		            </ul>
+
+		            <a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471"  class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+
+
+         <!-- NEW Service-->
+          <!--
+         <div class="item">
+          <div class="block-7">
+             <div class="img" style="background-image: url(images/lux-bath-cat.jpg);"></div>
+             <div class="text-center p-4">
+               <span class="excerpt d-block">Luxury Bath for Cats</span>
+               <div class="my-3"></div>
+
+               <ul class="pricing-text mb-5">
+                 <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                 <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+                 <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+                 <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                 <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                 <li><span class="fa fa-check mr-2"></span>Ear cleaning</li>
+               </ul>
+
+               <a href="tel:+14079050407" class="btn btn-primary d-block px-2 py-3">Book</a>
+             </div>
+           </div>
+         </div>
+
+         <div class="item">
+          <div class="block-7">
+             <div class="img" style="background-image: url(images/mini-groom-cat.png);"></div>
+             <div class="text-center p-4">
+               <span class="excerpt d-block">Mini Groom for Cats</span>
+               <div class="my-3"></div>
+
+               <ul class="pricing-text mb-5">
+                 <li><span class="fa fa-check mr-2"></span>Paw and tail trim</li>
+                 <li><span class="fa fa-check mr-2"></span>Sanitary trim</li>
+                 <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                 <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+                 <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+                 <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                 <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                 <li><span class="fa fa-check mr-2"></span>Ear cleaning </li>
+               </ul>
+
+               <a href="tel:+14079050407" class="btn btn-primary d-block px-2 py-3">Book</a>
+             </div>
+           </div>
+         </div>
+
+         <div class="item">
+          <div class="block-7">
+             <div class="img" style="background-image: url(images/full-groom-cat.jpg);"></div>
+             <div class="text-center p-4">
+               <span class="excerpt d-block">Full Groom for Cats</span>
+               <div class="my-3"></div>
+
+               <ul class="pricing-text mb-5">
+                 <li><span class="fa fa-check mr-2"></span>Full-style haircut</li>
+                 <li><span class="fa fa-check mr-2"></span>Paw and tail trim</li>
+                 <li><span class="fa fa-check mr-2"></span>Sanitary trim</li>
+                 <li><span class="fa fa-check mr-2"></span>Luxurious bath</li>
+                 <li><span class="fa fa-check mr-2"></span>Your choice of shampoo</li>
+                 <li><span class="fa fa-check mr-2"></span>Full body brushing</li>
+                 <li><span class="fa fa-check mr-2"></span>Blow drying</li>
+                 <li><span class="fa fa-check mr-2"></span>Nail trimming</li>
+                 <li><span class="fa fa-check mr-2"></span>Ear cleaning</li>
+               </ul>
+
+               <a href="tel:+14079050407" class="btn btn-primary d-block px-2 py-3">Book</a>
+             </div>
+           </div>
+         </div>
+         -->
+
+         <div class="item">
+          <div class="block-7">
+             <div class="img" style="background-image: url(images/extra-service.jpg);"></div>
+             <div class="text-center p-4">
+               <span class="excerpt d-block">Extra Service</span>
+               <div class="my-3"></div>
+               <ul class="pricing-text mb-5">
+                 <li><span class="fa fa-check mr-2"></span>Flea dip</li>
+                 <li><span class="fa fa-check mr-2"></span>Nail grinding</li>
+                 <li><span class="fa fa-check mr-2"></span>De-shedding </li>
+                 <li><span class="fa fa-check mr-2"></span>Dematting</li>
+               </ul>
+
+               <a href="https://booking.moego.pet/ol/book?name=HollywoodGrooming124471"  class="btn btn-primary d-block px-2 py-3">Book</a>
+             </div>
+           </div>
+         </div>
+	      </div>
+    	</div>
+    </section>
+
+		<!-- <section id="gallery-section" class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2>Our Stars</h2>
+          </div>
+        </div>
+				<div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-1.jpg);">
+            	<a href="images/gallery-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Cat</span>
+	              	<h2><a href="work-single.html">Persian Cat</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-2.jpg);">
+            	<a href="images/gallery-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Dog</span>
+	              	<h2><a href="work-single.html">Pomeranian</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-3.jpg);">
+            	<a href="images/gallery-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Cat</span>
+	              	<h2><a href="work-single.html">Sphynx Cat</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-4.jpg);">
+            	<a href="images/gallery-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Cat</span>
+	              	<h2><a href="work-single.html">British Shorthair</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-5.jpg);">
+            	<a href="images/gallery-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Dog</span>
+	              	<h2><a href="work-single.html">Beagle</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="work mb-4 img d-flex align-items-end" style="background-image: url(images/gallery-6.jpg);">
+            	<a href="images/gallery-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="fa fa-expand"></span>
+	    				</a>
+            	<div class="desc w-100 px-4">
+	              <div class="text w-100 mb-3">
+	              	<span>Dog</span>
+	              	<h2><a href="work-single.html">Pug</a></h2>
+	              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</section> -->
+
+
+    <section id="faq-section" class="ftco-section bg-light ftco-faqs">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-6 order-md-last">
+    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/gallery-5.jpg);">
+    						<span class="fa fa-play"></span>
+    					</a>
+    				</div>
+    				<div class="d-flex mt-3">
+    					<div class="img img-2 mr-md-2" style="background-image:url(images/gallery-6.jpg);"></div>
+    					<div class="img img-2 ml-md-2" style="background-image:url(images/gallery-7.jpg);"></div>
+    				</div>
+    			</div>
+
+    			<div class="col-lg-6">
+    				<div class="heading-section mb-5 mt-5 mt-lg-0">
+	            <h2 class="mb-3">Frequently Asked Questions</h2>
+    				</div>
+    				<div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
+						  <div class="card">
+						    <div class="card-header p-0" id="headingOne">
+						      <h2 class="mb-0">
+						        <button href="#collapseOne" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+						        	<p class="mb-0">What should I do to prepare my pet for their grooming appointment?</p>
+						          <i class="fa" aria-hidden="true"></i>
+						        </button>
+						      </h2>
+						    </div>
+						    <div class="collapse show" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
+						      <div class="card-body py-3 px-0">
+						      	<ol>
+						      		<li>Please arrive with your pet on a leash or in a secured carrier</li>
+						      		<li>Brush out any mats or heavy tangles before you come (an extra dematting charge may apply for severe mats)</li>
+						      		<li>Make sure your pet has gone to the bathroom within an hour of their appointment</li>
+						      		<li>Let us know about any health issues (allergies, arthritis, recent surgeries) so we can adapt our handling</li>
+						      	</ol>
+						      </div>
+						    </div>
+						  </div>
+
+						  <div class="card">
+						    <div class="card-header p-0" id="headingTwo" role="tab">
+						      <h2 class="mb-0">
+						        <button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+						        	<p class="mb-0">How often should I have my dog professionally groomed?</p>
+						          <i class="fa" aria-hidden="true"></i>
+						        </button>
+						      </h2>
+						    </div>
+						    <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo">
+						      <div class="card-body py-3 px-0">
+                    <p class="pl-4 mb-3 text-body">
+                      Most breeds benefit from a professional grooming every 4–6 weeks to keep coat, skin, nails, and ears healthy.
+                    </p>
+						      	<ol>
+						      		<li>Long-haired or double-coated breeds (e.g. Shih Tzu, Pomeranian) often need a full groom every 4 weeks, with a mid-cycle mini groom or luxury bath for a refresh</li>
+						      		<li>Short-haired breeds (e.g. Beagle, Boxer) can go 6–8 weeks between full grooms, with a mid-cycle mini groom or luxury bath for a refresh</li>
+
+						      	</ol>
+						      </div>
+						    </div>
+						  </div>
+
+						  <div class="card">
+						    <div class="card-header p-0" id="headingThree" role="tab">
+						      <h2 class="mb-0">
+						        <button href="#collapseThree" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+						        	<p class="mb-0">Do you offer pickup and delivery service?</p>
+						          <i class="fa" aria-hidden="true"></i>
+						        </button>
+						      </h2>
+						    </div>
+						    <div class="collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingTwo">
+						      <div class="card-body py-3 px-0">
+                    <p class="pl-4 mb-3 text-body">
+                      Yes! Our pickup &amp; delivery service is available with any package.
+                        We use
+                        <a href="https://www.centerforpetsafety.org/cabelas-gun-dog-kennel/" target="_blank">
+                          Cabela’s Gun Dog Kennel
+                        </a>, one of the few crates approved by the Center for Pet Safety, and transport your dog in a fully climate-controlled commercial van.
+                        To schedule, just select the “Pick up/Delivery” option when booking your appointment, or give us a call and we’ll handle everything.
+                    </p>
+
+
+						      </div>
+						    </div>
+						  </div>
+
+						  <div class="card">
+						    <div class="card-header p-0" id="headingFour" role="tab">
+						      <h2 class="mb-0">
+						        <button href="#collapseFour" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
+						        	<p class="mb-0">Does my pet need to be vaccinated before grooming?</p>
+						          <i class="fa" aria-hidden="true"></i>
+						        </button>
+						      </h2>
+						    </div>
+						    <div class="collapse" id="collapseFour" role="tabpanel" aria-labelledby="headingTwo">
+						      <div class="card-body py-3 px-0">
+						      	<p class="pl-4 mb-3 text-body">Yes. For everyone’s safety, your pet must be up-to-date.</p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+
+    <section id="review-section"
+        class="ftco-section testimony-section"
+        style="background-image: url('images/store-front-outside.JPG'); position: relative;">
+        <div class="review-dark-overlay" style="
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.50);
+      z-index: 1;
+      pointer-events: none;
+    "></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <div style="display:inline-block; background: rgba(255,255,255,0.95); padding: 12px 22px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.18);">
+  <h2 class="mb-0" style="color:#111; margin:0;">Happy Clients</h2>
+</div>
+          </div>
+        </div>
+
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+
+
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4">
+                      Excellent service, friendly staff and my babies are looking gorgeous. I have 2 huskies and chose the Luxury Bath with the de-shedding package.
+                      Prices are very affordable as well.
+
+                      Update: I continue to go to this place. The girls that work here treat my 3 huskies so well and they have even learned their names. I’m very happy with their services.
+                    </p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Ana Leon</p>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4">They make my poodle look so beautiful and do a great job with ear plucking.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Abigail Wengert</p>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4">They did an amazing job with our baby Monty! She looked so adorable and fluffy when we picked her up. She was happy and smelled great! I love how they listened to what we were looking for and didn't shave her fur off or give her a bad cut. We will definitely keep taking her here for all her grooming needs!</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                      <div class="pl-3">
+                        <p class="name">Stephanie Schick</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4">I took my Sheepadoodle here for the first time. I have been so unhappy with his haircuts in the past so decided to give Hollywood grooming a try. I am so happy that I did! They did such a great job and for a very fair price! This is definitely my new groomer!</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url(images/person_4.jpg)"></div>
+                      <div class="pl-3">
+                        <p class="name">Jacqueline Wickiser</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                  <div class="text">
+                    <p class="mb-4"> First time there last Saturday because I just moved into the area. My little man looks so good! I started doing his grooming because I haven’t had any good experiences with grooming. Decided to try again and this has been the best grooming I’ve ever seen on him. Affordable and he look like a cute fluffy bunny. Thank you! I wish I would of gotten the name of the groomer.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url(images/person_5.jpg)"></div>
+                      <div class="pl-3">
+                        <p class="name">Rebekah Schmidt</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+            <img id="footer-logo" src="images/logo.png" alt="Hollywood Grooming Logo" style="max-width: 150px; height: auto; margin-bottom: 20px;">
+						<ul class="ftco-footer-social p-0">
+              <li class="ftco-animate"><a href="https://www.facebook.com/HollywoodGroomingInc/" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.instagram.com/hollywoodgrooming/?hl=en" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.yelp.com/biz/hollywood-grooming-ocoee" data-toggle="tooltip" data-placement="top" title="Yelp"><span class="fa fa-yelp"></span></a></li>
+            </ul>
+					</div>
+
+
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0" style="margin-top: 2em;">
+						<div class="block-23 mb-3">
+              <ul>
+                <li>
+                  <span class="icon fa fa-map" style="color: #8e44ad;"></span><a href="https://www.google.com/maps?q=11057+W+Colonial+Dr,+Ocoee,+FL" target="_blank" style="color: rgba(0, 0, 0, 0.5);">
+                  11057 W Colonial Dr. Ocoee, FL
+                  </a>
+                </li>
+                <li><a href="tel:+14079050407"><span class="icon fa fa-phone" style="color: #8e44ad;"></span><span class="text">(407) 905-0407</span></a></li>
+
+                <li><a href="tel:+14079050407"><span class="icon  flaticon-pawprint-1" style="color: #8e44ad;"></span><span class="text">Walk-ins welcome with previous call</span></a></li>
+
+              </li>
+              </ul>
+            </div>
+					</div>
+
+      <div class="col-md-6 col-lg-3 mb-4 mb-md-0" style="margin-top: 2em;">
+        	<div class="block-23 mb-3">
+      <ul >
+
+        <li><a href="tel:+14079050407"><span class="icon fa fa-clock-o" style="color: #8e44ad;"></span><span class="text">Mon-Tue, Thu-Sat 09:00 – 04:00 pm</span></a></li>
+        <li><a href="tel:+14079050407"><span class="icon fa fa-calendar-times-o" style="color: #8e44ad;"></span><span class="text">Wed & Sun Closed</span></a></li>
+        <li><a href="tel:+14079050407"><span class="icon fa fa-comments" style="color: #8e44ad;"></span><span class="text">We speak English, Spanish & Portuguese</span></a></li>
+
+      </ul>
+      </div>
+    </div>
+
+				</div>
+				<div class="row mt-5">
+          <div class="col-md-12 text-center">
+
+            <p class="copyright" style="font-size: 8px;">
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+</p>
+          </div>
+        </div>
+			</div>
+		</footer>
+
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+
+  </body>
+</html>
