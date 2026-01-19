@@ -271,7 +271,32 @@
   }
 }
 
+/* Always prevent any tiny horizontal overflow */
+html, body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+/* Force full-bleed sections even if they're inside a max-width wrapper */
+.hero-carousel-wrap,
+#review-section{
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+/* Make sure Owl internals stretch fully */
+.hero-carousel,
+.hero-carousel .owl-stage-outer,
+.hero-carousel .owl-stage,
+.hero-carousel .owl-item,
+.hero-carousel .hero-slide{
+  width: 100% !important;
+  max-width: 100% !important;
+}
 
 </style>
   </head>
