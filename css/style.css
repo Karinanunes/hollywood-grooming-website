@@ -9890,12 +9890,7 @@ textarea.form-control {
  }
 
  @media (prefers-color-scheme: dark) {
-  #logo {
-    content: url("images/logo-dark-mode.png");
-  }
-  #footer-logo {
-    content: url("images/logo-dark-mode.png");
-  }
+
 
   /* Make hero carousel slides behave like the original hero background */
 .hero-carousel-wrap,
